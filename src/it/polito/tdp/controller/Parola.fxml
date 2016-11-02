@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Esercizio 1" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Parola" />
+                  <TextField fx:id="txtParole" promptText="inserisci parole" />
+                  <Button fx:id="btnInserisci" mnemonicParsing="false" onAction="#doInserisci" text="Inserisci" />
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="200.0">
+               <children>
+                  <CheckBox fx:id="checkParolaAccettata" mnemonicParsing="false" text="Parola accettata" />
+                  <CheckBox fx:id="checkParolaNonLegata" layoutX="151.0" layoutY="6.0" mnemonicParsing="false" text="Parola non legata a precedente" />
+                  <CheckBox fx:id="checkParolaGiaInserita" mnemonicParsing="false" text="Parola gia inserita" textAlignment="JUSTIFY" />
+               </children>
+            </AnchorPane>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Tot parole inserite" />
+                  <TextField fx:id="txtResultTot" disable="true" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
