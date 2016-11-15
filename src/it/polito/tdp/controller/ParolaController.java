@@ -2,8 +2,6 @@ package it.polito.tdp.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import it.polito.tdp.model.Parola;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,14 +10,12 @@ import javafx.scene.control.TextField;
 
 public class ParolaController{          
 	
-	private Parola model;
+	private it.polito.tdp.ModelUno.Model model;
 	
-	
-	
-	public void setModel(Parola model){
-		this.model = model;
+	public void setModel(it.polito.tdp.ModelUno.Model model){
+		this.model=model;
 	}
-
+	
     @FXML
     private ResourceBundle resources;
 
@@ -47,32 +43,16 @@ public class ParolaController{
     @FXML
     void doInserisci(ActionEvent event) {
     	String s = txtParole.getText();          //prendo la parola inserita dall'utente
-    	
-    	
-    	
-    	
-    	if(s.length()==0){                     //se è vuota il programma non fa nulla
+    	if(s.length()==0){                      //se è vuota il programma non fa nulla
     		return;
     	}
+    	
     
-    	int totale=0;                         //devo tenere il conto di parole inserite dall'utente
-    	
-    	
-    	//controlle ke sia una parola (ne mette una per volta)
-    	
-    	for (int i = 0; i < s.length(); i++) {          
-              if (Character.isSpaceChar(s.charAt(i))) {  
-            	  
-              }
-              else {              //se non è una parola non fa niente
-            	     return;
-              }
-       }
-    	
-    	
-    	model.parolaAccettata(s);            //chiamo il metodo xhe aggiunge la parola se va bene
-    	totale++;                           //totale deve essere uguale alla lunghezza della lista
-    	txtResultTot.appendText("Le parole inserite sono " + totale + "." );
+    	boolean accettata=model.parolaAccettata(s);            //chiamo il metodo xhe aggiunge la parola se va bene
+ 
+    	if(accettata==true){
+    		model.aggiungiParola(s);
+    	}
     	
     	
     	//PS: NON SO COME FUNZIONINO LE CHECK 
